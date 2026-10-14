@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  /* 16px inputs stop iOS Safari from zooming on focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-ink/15 bg-white p-4;
+  }
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-4 text-base font-semibold transition-transform active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-outline {
+    @apply border border-ink/25 bg-white text-ink hover:bg-sage;
+  }
+  .btn-danger {
+    @apply bg-brick text-white hover:bg-brick-dark;
+  }
+  .btn-sm {
+    @apply min-h-10 px-3 text-sm;
+  }
+  .input {
+    @apply min-h-12 w-full rounded-lg border border-ink/25 bg-white px-3 text-base text-ink placeholder:text-ink/40 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-ink/70;
+  }
+  .page-title {
+    @apply font-display text-2xl font-bold tracking-tight;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
